@@ -15,7 +15,9 @@ import java.rmi.server.UnicastRemoteObject;
  * @author <a href=zhangjiaxing@ultrapower.com.cn>J.X.Zhang</a>
  * @version 1.0
  */
-public class HelloImpl implements Hello {
+public class HelloImpl extends UnicastRemoteObject implements Hello {
+
+    HelloImpl() throws RemoteException{}
 
     @Override
     public String sayHello() throws RemoteException {
@@ -25,5 +27,17 @@ public class HelloImpl implements Hello {
     @Override
     public String sayHelloToSomebody(String name) throws RemoteException {
         return "hello, " + name;
+    }
+
+
+    /**
+     * 传递自定义对象必须实现
+     * @param user
+     * @return
+     * @throws RemoteException
+     */
+    @Override
+    public String sayHelloToObject(User user) throws RemoteException {
+        return "success:" + user;
     }
 }

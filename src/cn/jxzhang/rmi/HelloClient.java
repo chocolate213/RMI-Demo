@@ -42,6 +42,7 @@ public class HelloClient {
             //调用返回对象的方法：返回对象为Remote，目标对象继承了Remote对象，所以可以强转为Hello并调用Hello的方法
             System.out.println(hello.sayHello());
             System.out.println(hello.sayHelloToSomebody("zhangSan"));
+            System.out.println(hello.sayHelloToObject(new User("zhangSan","123")));
 
         } catch (NotBoundException | MalformedURLException | RemoteException e) {
             e.printStackTrace();

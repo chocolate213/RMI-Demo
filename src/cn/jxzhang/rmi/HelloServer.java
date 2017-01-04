@@ -62,10 +62,8 @@ public class HelloServer {
             //2. 本地主机上的远程对象注册表Registry的实例，并指定端口为9999，这一步必不可少（Java默认端口是1099）缺少注册表创建，则无法绑定对象到远程注册表上
             LocateRegistry.createRegistry(9999);
 
-            Remote remote = UnicastRemoteObject.exportObject(hello,11111);      //使用Naming绑定Remote对象，无需指定端口号，或者指定什么都可以
-
             //3. 把远程对象注册到RMI注册服务器上，并命名为hello
-            Naming.bind("rmi://192.168.10.172:9999/hello",remote);
+            Naming.bind("rmi://192.168.10.172:9999/hello",hello);
 
 
             System.out.println(">>>>>INFO:远程IHello对象绑定成功！");

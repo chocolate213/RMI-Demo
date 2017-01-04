@@ -19,4 +19,6 @@ public interface Hello extends Remote {
     String sayHello() throws RemoteException;
 
     String sayHelloToSomebody(String name) throws RemoteException;
+
+    String sayHelloToObject(User user) throws RemoteException;
 }
