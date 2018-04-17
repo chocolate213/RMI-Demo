@@ -42,7 +42,7 @@ public class HelloServer {
         //远程对象没有继承UnicastRemoteObject方法，采用如下方式转换目标对象
         Remote remote = UnicastRemoteObject.exportObject(hello,9999);       //如果使用registry绑定Remote对象，必须指定端口号
 
-        registry.bind("rmi://192.168.10.172:9999/hello",remote);
+        registry.bind("hello",remote);          //这里必须只绑定服务名，否则客户端调用时会抛出异常java.rmi.NotBoundException
 
         System.out.println(">>>>>INFO:远程IHello对象绑定成功！");
     }
